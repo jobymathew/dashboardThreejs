@@ -1,50 +1,50 @@
-// components/CarModel.js
+// components/CarCanvas.js
+"use client";
 
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import React, { useEffect, useRef } from 'react';
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import styled from 'styled-components';
 
-const CarModel = () => {
-  const containerRef = useRef(null);
+import MercedesCarModal from './cars/Mercedesf1new';
+import AlfaRomeoCarModal from './cars/AlfaRomeoF1';
 
-  useEffect(() => {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    const loader = new GLTFLoader();
 
-    camera.position.z = 5;
 
-    // loader.load('/assets/mercedesf1.glb', (gltf) => {
-    //   const carModel = gltf.scene;
-    //   scene.add(carModel);
+const CarModel = (props) => {
 
-    //   animate();
+  const initialCameraPosition: Array<number> = [0, 0, 5];
+  const initialCameraRotation: Array<number> = [0, 0, 0]; // Adjust the angles as needed
 
-    //   function animate() {
-    //     requestAnimationFrame(animate);
-    //     renderer.render(scene, camera);
-    //   }
-    // });
+  // Create a ref to the AlfaRomeoCarModal component
+  const carRef = useRef();
+  const { camera } = useThree();
 
-    loader.load( '/assets/mercedesf1.glb', function ( gltf ) {
-
-      scene.add( gltf.scene );
-      console.log('adding scene')
-    
-    }, undefined, function ( error ) {
-    
-      console.error( error );
-    
-    } );
-
-    console.log(containerRef.current);
-    if (containerRef.current) {
-      containerRef.current.appendChild(renderer.domElement);
+  useFrame(() => {
+    if (carRef.current) {
+      // carRef.current.rotation.x += 0.01; // Rotate around the X-axis
+      carRef.current.rotation.y += 0.01; // Rotate around the Y-axis
     }
-  }, []);
+  });
 
-  return <div ref={containerRef} />;
+  // Set the initial camera position and rotation
+  useEffect(() => {
+    camera.position.set(2, 3, 5);
+    // camera.rotation.set(2, 0, 0);
+  }, [camera]);
+
+  return (
+    // Putting the 3d object inside mesh to provide ref to all the children objects
+    <mesh {...props} ref={carRef}>
+        <OrbitControls enableZoom={false} />
+
+        {/* <MercedesCarModal /> */}
+        <AlfaRomeoCarModal />
+
+        {/* A 3D scene will be black unless there is light */}
+        <ambientLight />
+    </mesh>
+  );
 };
 
 export default CarModel;
