@@ -30,6 +30,7 @@ const CarModel = () => {
     loader.load( '/assets/mercedesf1.glb', function ( gltf ) {
 
       scene.add( gltf.scene );
+      console.log('adding scene')
     
     }, undefined, function ( error ) {
     
@@ -37,6 +38,7 @@ const CarModel = () => {
     
     } );
 
+    console.log(containerRef.current);
     if (containerRef.current) {
       containerRef.current.appendChild(renderer.domElement);
     }

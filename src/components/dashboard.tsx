@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import CarModel from './carModel';
+// import CarModel from './carModel';
+import CarCanvas from './CarCanvas';
 // import F1DataFetcher from './F1DataFetcher';
 import D3DataVisualization from './D3DataVisualization';
 import MercedesLogo from './mercedesLogo';
@@ -26,7 +27,7 @@ const Dashboard: React.FC = () => {
   return (
     <StyledDashboard>
       {/* Navbar */}
-      <nav>
+      {/* <nav>
         <MercedesLogo />
         <ul>
           <li>Drivers</li>
@@ -35,16 +36,17 @@ const Dashboard: React.FC = () => {
           <li>Services</li>
           <li>Contact</li>
         </ul>
-      </nav>
+      </nav> */}
 
       {/* 3D Object */}
-      <CarModel />
+      {/* <CarModel /> */}
+      <CarCanvas />
       
       {/* Title for Charts */}
-      <Title>Formula 1 Stats</Title>
+      {/* <Title>Formula 1 Stats</Title> */}
 
       {/* D3 Data Visualization */}
-      <D3DataVisualization />
+      {/* <D3DataVisualization /> */}
     </StyledDashboard>
   );
 };
