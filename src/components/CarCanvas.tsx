@@ -13,8 +13,12 @@ import CarModel from './carModel';
 const Wrapper = styled.div`
   canvas {
     height: 100vh;
+    margin: 0;
+    padding: 0;
   }
 `;
+
+  {/* Your Three.js scene content */}
 
 const CarCanvas = () => {
 

@@ -42,7 +42,7 @@ const CarModel = (props) => {
         <AlfaRomeoCarModal />
 
         {/* A 3D scene will be black unless there is light */}
-        <ambientLight />
+        <ambientLight intensity={2} />
     </mesh>
   );
 };
