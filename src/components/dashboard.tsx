@@ -59,11 +59,11 @@ const Dashboard: React.FC = () => {
         
         <StyledUl>
           <StyledLi>Drivers</StyledLi>
-          <StyledLi>Engine</StyledLi>
-          <StyledLi>Team</StyledLi>
-          <StyledLi><AlfaLogo /></StyledLi>
+          <StyledLi>Stats</StyledLi>
           <StyledLi>Race</StyledLi>
+          <StyledLi><AlfaLogo /></StyledLi>
           <StyledLi>Services</StyledLi>
+          <StyledLi>Our Sponsors</StyledLi>
           <StyledLi>Contact</StyledLi>
         </StyledUl>
       </NavBar>
