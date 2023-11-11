@@ -26,19 +26,26 @@ const StyledDashboard = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #222;
+  height: 100%;
   color: white;
   font-family: Arial, sans-serif;
   background-image: url(${AlfaBg.src}); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 `;
 
 
 
 const Title = styled.h2`
   font-size: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 const Header = styled.h1`
@@ -48,7 +55,7 @@ const Header = styled.h1`
 
 const NavBar = styled.nav`
   display: flex;
-  padding-top: 20px;
+  padding-top: 5px;
 `;
 
 const StyledUl = styled.ul`
@@ -58,11 +65,11 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li<{ isactive: boolean }>`
   padding: 10px;
-  color: ${(props) => (props.isactive ? 'blue' : 'white')};
+  font-weight: ${(props) => (props.isactive ? 'bolder' : 'normal')};
   cursor: pointer;
 
   &:hover {
-    color: blue;
+    font-weight: bold;
   }
 `;
 
