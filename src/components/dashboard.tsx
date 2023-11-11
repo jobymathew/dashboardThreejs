@@ -16,7 +16,7 @@ import Stats from '@/pages/Stats';
 import Contact from '@/pages/Contact';
 import Engine from '@/pages/Engine';
 import Home from '@/pages/Home';
-import Services from '@/pages/Services';
+import Gallery from '@/pages/Gallery';
 import Sponsors from '@/pages/Sponsors';
 import Link from 'next/link';
 
@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
     { title: 'Stats', component: <Stats /> },
     { title: 'Engine', component: <Engine /> },
     { title: 'Home', component: <Home /> },
-    { title: 'Services', component: <Services /> },
+    { title: 'Gallery', component: <Gallery /> },
     { title: 'Our Sponsors', component: <Sponsors /> },
     { title: 'Contact', component: <Contact /> },
   ];
