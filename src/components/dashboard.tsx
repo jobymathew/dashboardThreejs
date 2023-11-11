@@ -5,10 +5,21 @@ import React from 'react';
 import CarCanvas from './CarCanvas';
 // import F1DataFetcher from './F1DataFetcher';
 import D3DataVisualization from './D3DataVisualization';
+import { usePathname, useRouter } from 'next/navigation';
+
 
 import styled from 'styled-components';
 import AlfaLogo from './alfaLogo';
 import AlfaBg from '../images/alfa-background.png';
+import Drivers from '@/pages/Drivers';
+import Stats from '@/pages/Stats';
+import Contact from '@/pages/Contact';
+import Engine from '@/pages/Engine';
+import Home from '@/pages/Home';
+import Services from '@/pages/Services';
+import Sponsors from '@/pages/Sponsors';
+import Link from 'next/link';
+
 
 const StyledDashboard = styled.div`
   display: flex;
@@ -45,37 +56,64 @@ const StyledUl = styled.ul`
   align-items: center;
 `;
 
-const StyledLi = styled.li`
+const StyledLi = styled.li<{ isactive: boolean }>`
   padding: 10px;
+  color: ${(props) => (props.isactive ? 'blue' : 'white')};
+  cursor: pointer;
+
+  &:hover {
+    color: blue;
+  }
+`;
+
+const SectionContent = styled.div`
+  margin-top: 20px;
 `;
 
 
 const Dashboard: React.FC = () => {
+
+  const [selectedSection, setSelectedSection] = React.useState<string | null>('Home');
+
+  const sections = [
+    { title: 'Drivers', component: <Drivers /> },
+    { title: 'Stats', component: <Stats /> },
+    { title: 'Engine', component: <Engine /> },
+    { title: 'Home', component: <Home /> },
+    { title: 'Services', component: <Services /> },
+    { title: 'Our Sponsors', component: <Sponsors /> },
+    { title: 'Contact', component: <Contact /> },
+  ];
+
+
   return (
 
     <StyledDashboard>
       {/* Navbar */}
       <NavBar>
+
+      <StyledUl>
+          {sections.map((section, index) => (
+            <StyledLi
+            key={index}
+            isactive={selectedSection === section.title}
+            onClick={() => setSelectedSection(section.title)}
+          >
+            {section.title === 'Home' ? <AlfaLogo /> : section.title}
+          </StyledLi>
+          ))}
+      </StyledUl>
         
-        <StyledUl>
-          <StyledLi>Drivers</StyledLi>
-          <StyledLi>Stats</StyledLi>
-          <StyledLi>Race</StyledLi>
-          <StyledLi><AlfaLogo /></StyledLi>
-          <StyledLi>Services</StyledLi>
-          <StyledLi>Our Sponsors</StyledLi>
-          <StyledLi>Contact</StyledLi>
-        </StyledUl>
       </NavBar>
 
-      {/* 3D Object */}
-      <CarCanvas />
-      
-      {/* Title for Charts */}
-      <Title>Formula 1 Stats</Title>
+      {/* Section Content */}
+      <SectionContent>
+        {selectedSection &&
+          sections.find((section) => section.title === selectedSection)?.component}
+      </SectionContent>
 
-      {/* D3 Data Visualization */}
-      <D3DataVisualization />
+      {/* 3D Object */}
+      {/* <CarCanvas /> */}
     </StyledDashboard>
   );
 };
