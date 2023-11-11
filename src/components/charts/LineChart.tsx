@@ -19,18 +19,11 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Set white background
+    // Set grey background
     svg.append('rect')
       .attr('width', width)
       .attr('height', height)
-      .attr('fill', 'white');
-
-    // Parse data
-    data.forEach((d) => {
-      // Convert finish positions to numbers
-      d.bottas = +d.bottas;
-      d.zhou = +d.zhou;
-    });
+      .attr('fill', 'rgba(0, 0, 0, 0.3)')
 
     // Define scales
     const xScale = d3
@@ -73,7 +66,7 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
       .data([data])
       .attr('class', 'line')
       .attr('d', lineBottas)
-      .style('stroke', 'blue')
+      .style('stroke', 'red')
       .style('fill', 'none');
 
     // Draw Zhou line
@@ -81,7 +74,7 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
       .data([data])
       .attr('class', 'line')
       .attr('d', lineZhou)
-      .style('stroke', 'red')
+      .style('stroke', 'white')
       .style('fill', 'none');
 
     // Add dots on data points with increased size
@@ -92,7 +85,7 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
       .attr('cx', (d) => xScale(d.race) || 0)
       .attr('cy', (d) => yScale(d.bottas) || 0)
       .attr('r', 7) // Increased size
-      .style('fill', 'blue');
+      .style('fill', 'red');
 
     svg.selectAll('.dot-zhou')
       .data(data)
@@ -101,7 +94,7 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
       .attr('cx', (d) => xScale(d.race) || 0)
       .attr('cy', (d) => yScale(d.zhou) || 0)
       .attr('r', 7) // Increased size
-      .style('fill', 'red');
+      .style('fill', 'white');
 
     // Add Legend
     const legend = svg.append('g')
@@ -110,25 +103,27 @@ const LineChart: React.FC<{ data: { race: string; bottas: number; zhou: number }
     legend.append('rect')
       .attr('width', 10)
       .attr('height', 10)
-      .attr('fill', 'blue');
+      .attr('fill', 'red');
 
     legend.append('text')
       .attr('x', 15)
       .attr('y', 5)
       .text('Bottas')
-      .style('font-size', '12px');
+      .style('font-size', '12px')
+      .style('fill', 'white');
 
     legend.append('rect')
       .attr('width', 10)
       .attr('height', 10)
-      .attr('fill', 'red')
+      .attr('fill', 'white')
       .attr('y', 15);
 
     legend.append('text')
       .attr('x', 15)
       .attr('y', 20)
       .text('Zhou')
-      .style('font-size', '12px');
+      .style('font-size', '12px')
+      .style('fill', 'white');
 
   }, [data]);
 

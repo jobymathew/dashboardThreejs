@@ -69,7 +69,7 @@ const Drivers: React.FC = () => {
         </DriverImageContainer>
         <DriverInfo>
           <DriverNumber>77 <CountryFlag>🇫🇮</CountryFlag></DriverNumber>
-          <DriverName>Valterri Bottas</DriverName>
+          <DriverName>Valtteri Bottas</DriverName>
         </DriverInfo>
       </DriverCard>
 

@@ -1,7 +1,9 @@
 import D3DataVisualization from '@/components/D3DataVisualization';
 import BarChart from '@/components/charts/BarChart';
 import LineChart from '@/components/charts/LineChart';
+import { addTeamStandingData } from '@/redux/teamStandingSlice';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 const Title = styled.h2`
@@ -60,14 +62,60 @@ const data = [
     }
   });
   
-const Stats: React.FC = () => {
-  return (
-    <div>
+  const StatsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px; /* Adjust margin as needed */
+`;
 
-        <LineChart data={data}  />
-        <BarChart data={teamStandingsData} />
-    </div>
-  );
+const ChartContainer = styled.div`
+  margin-top: 20px; /* Adjust margin as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ChartTitle = styled.h2`
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+`;
+
+const Stats: React.FC = () => {
+
+  const dispatch = useDispatch()
+  const lineChartData = useSelector((state: any) => state.lineChart);
+  const teamStandingData = useSelector((state: any) => state.teamStandings);
+
+  let countBottas = 0;
+  let countZhou = 0;
+
+
+  for( let raceData of lineChartData)  {
+    
+    countBottas += raceData.bottas;
+    countZhou += raceData.zhou;
+
+    dispatch(addTeamStandingData({
+    race: raceData.race,
+    bottas: countBottas,
+    zhou: countZhou,
+    }));
+  }
+
+
+
+  return (
+    <StatsContainer>
+      <ChartContainer>
+        <ChartTitle>Results</ChartTitle>
+        <LineChart data={lineChartData} />
+      </ChartContainer>
+      <ChartContainer>
+        <ChartTitle>Points</ChartTitle>
+        <BarChart data={teamStandingData} />
+      </ChartContainer>
+    </StatsContainer>
+  )
 };
 
 export default Stats;

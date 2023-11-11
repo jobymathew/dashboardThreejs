@@ -10,7 +10,7 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
   const chartRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    if (!chartRef.current || data.length === 0) return;
+    if (!chartRef.current) return;
 
     const margin = { top: 20, right: 20, bottom: 60, left: 40 };
     const width = 800 - margin.left - margin.right;
@@ -22,16 +22,17 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    const races = data.map(entry => entry.race);
+    const races = data?.map(entry => entry.race);
     const drivers = ['bottas', 'zhou'];
 
     const colorScale = d3.scaleOrdinal()
       .domain(drivers)
-      .range(['red', 'black']); // Red for Bottas, black for Zhou
+      .range(['red', 'white']); // Red for Bottas, white for Zhou
 
     const stack = d3.stack().keys(drivers);
 
-    const stackedData = stack(data.map(entry => entry as any));
+    // redux data takes time to load hence adding && check
+    const stackedData = stack(data?.map(entry => entry as any));
 
     const xScale = d3.scaleBand()
       .domain(races)
@@ -42,11 +43,12 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
       .domain([0, d3.max(stackedData, layer => d3.max(layer, d => d[1])) || 0])
       .range([height, 0]);
 
-    // Set white background for the graph
+    // Set grey background for the graph
     svg.append('rect')
       .attr('width', width)
       .attr('height', height)
-      .attr('fill', 'white');
+    //   .attr('fill', 'white');
+      .attr('fill', 'rgba(0, 0, 0, 0.3)')
 
     svg.selectAll('.bar-group')
       .data(stackedData)
@@ -91,7 +93,7 @@ const BarChart: React.FC<BarChartProps> = ({ data }) => {
       .attr('y', 9)
       .attr('dy', '.35em')
       .style('text-anchor', 'start')
-      .style('fill', 'black') // Set black color for legend text
+      .style('fill', 'white') // Set black color for legend text
       .text(d => (d === 'bottas' ? 'Bottas' : 'Zhou'));
   }, [data]);
 
