@@ -2,12 +2,11 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-interface BarChartProps {
-  data: { race: string; bottas: number; zhou: number }[];
-}
-
-const BarChart: React.FC<BarChartProps> = ({ data }) => {
+const BarChart: React.FC<{ data: { race: string; bottas: number; zhou: number }[] }> = ({ data }) => {
   const chartRef = useRef<SVGSVGElement | null>(null);
+
+  console.log('data');
+  console.log(data);
 
   useEffect(() => {
     if (!chartRef.current) return;

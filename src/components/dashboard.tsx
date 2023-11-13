@@ -61,10 +61,13 @@ const NavBar = styled.nav`
 const StyledUl = styled.ul`
   display: flex;
   align-items: center;
+  width: 60vw;
+  justify-content: space-between;
 `;
 
 const StyledLi = styled.li<{ isactive: boolean }>`
   padding: 10px;
+  flex: 0.125;
   font-weight: ${(props) => (props.isactive ? 'bolder' : 'normal')};
   cursor: pointer;
 
@@ -88,7 +91,7 @@ const Dashboard: React.FC = () => {
     { title: 'Engine', component: <Engine /> },
     { title: 'Home', component: <Home /> },
     { title: 'Gallery', component: <Gallery /> },
-    { title: 'Our Sponsors', component: <Sponsors /> },
+    { title: 'Sponsors', component: <Sponsors /> },
     { title: 'Contact', component: <Contact /> },
   ];
 
