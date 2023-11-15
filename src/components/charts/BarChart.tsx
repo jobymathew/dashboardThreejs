@@ -53,10 +53,12 @@ const BarChart: React.FC<{ data: { race: string; bottas: number; zhou: number }[
       .data(stackedData)
       .enter().append('g')
       .attr('class', 'bar-group')
+      // @ts-ignore
       .attr('fill', d => colorScale(d.key)) // Use color scale based on driver
       .selectAll('rect')
       .data(d => d)
       .enter().append('rect')
+      // @ts-ignore
       .attr('x', d => xScale(d.data.race))
       .attr('y', d => yScale(d[1]))
       .attr('height', d => yScale(d[0]) - yScale(d[1]))
@@ -81,6 +83,7 @@ const BarChart: React.FC<{ data: { race: string; bottas: number; zhou: number }[
       .attr('class', 'legend')
       .attr('transform', (d, i) => `translate(0,${i * 20})`);
 
+    // @ts-ignore
     legend.append('rect')
       .attr('x', 0)
       .attr('width', 18)

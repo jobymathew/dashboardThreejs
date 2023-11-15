@@ -17,7 +17,7 @@ const CarModel: React.FC = (props: any) => {
   const initialCameraRotation: Array<number> = [0, 0, 0]; // Adjust the angles as needed
 
   // Create a ref to the AlfaRomeoCarModal component
-  const carRef = useRef();
+  const carRef: any = useRef();
   const { camera } = useThree();
 
   useFrame(() => {
