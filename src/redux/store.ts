@@ -1,11 +1,14 @@
-
+// src/redux/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import f1Reducer from './slice';
+import lineChartReducer from './lineChartSlice';
+import teamStandingReducer from './teamStandingSlice';
+// Import other reducers here
 
 const store = configureStore({
   reducer: {
-    f1: f1Reducer,
-    // Add other reducers if needed
+    lineChart: lineChartReducer,
+    teamStanding: teamStandingReducer,
+    // Add other reducers here
   },
 });
 

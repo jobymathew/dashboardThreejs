@@ -11,10 +11,16 @@ import AlfaRomeoCarModal from './cars/AlfaRomeoF1';
 import CarModel from './carModel';
 
 const Wrapper = styled.div`
+
   canvas {
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    top: -10px;
   }
 `;
+
+  {/* Your Three.js scene content */}
 
 const CarCanvas = () => {
 

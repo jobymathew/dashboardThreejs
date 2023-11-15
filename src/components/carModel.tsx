@@ -11,7 +11,7 @@ import AlfaRomeoCarModal from './cars/AlfaRomeoF1';
 
 
 
-const CarModel = (props) => {
+const CarModel: React.FC = (props: any) => {
 
   const initialCameraPosition: Array<number> = [0, 0, 5];
   const initialCameraRotation: Array<number> = [0, 0, 0]; // Adjust the angles as needed
@@ -42,7 +42,7 @@ const CarModel = (props) => {
         <AlfaRomeoCarModal />
 
         {/* A 3D scene will be black unless there is light */}
-        <ambientLight />
+        <ambientLight intensity={2} />
     </mesh>
   );
 };
