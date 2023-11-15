@@ -2,10 +2,6 @@
 
 import React from 'react';
 // import CarModel from './carModel';
-import CarCanvas from './CarCanvas';
-// import F1DataFetcher from './F1DataFetcher';
-import D3DataVisualization from './D3DataVisualization';
-import { usePathname, useRouter } from 'next/navigation';
 
 
 import styled from 'styled-components';
@@ -18,7 +14,6 @@ import Engine from '@/pages/Engine';
 import Home from '@/pages/Home';
 import Gallery from '@/pages/Gallery';
 import Sponsors from '@/pages/Sponsors';
-import Link from 'next/link';
 
 
 const StyledDashboard = styled.div`

@@ -1,4 +1,3 @@
-// components/CarCanvas.js
 "use client";
 
 import React, { useRef } from 'react';
@@ -19,8 +18,6 @@ const Wrapper = styled.div`
     top: -10px;
   }
 `;
-
-  {/* Your Three.js scene content */}
 
 const CarCanvas = () => {
 
