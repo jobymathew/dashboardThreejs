@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const nextConfig = {
   // comment all the lines for npm run dev
   output: 'export',
@@ -7,20 +10,20 @@ const nextConfig = {
  // Add basePath
   basePath: '/dashboardThreejs',
   
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.(gltf)$/,
-      use: [
-        {
-          loader: 'file-loader',
-          options: {
-            publicPath: '/_next',
-            outputPath: 'static/media/',
-            name: '[name].[hash].[ext]',
-          },
-        },
-      ],
-    });
+  webpack: (config, { isServer }) => {
+    // Add copy-webpack-plugin to copy the GLTF file
+    if (!isServer) {
+      config.plugins.push(
+        new CopyWebpackPlugin({
+          patterns: [
+            {
+              from: 'public/assets',
+              to: 'static/media',
+            },
+          ],
+        })
+      );
+    }
 
     return config;
   },

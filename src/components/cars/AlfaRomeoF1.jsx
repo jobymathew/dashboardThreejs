@@ -12,7 +12,8 @@ import { useGLTF } from '@react-three/drei'
 
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/assets/alfaRomeoF1.gltf')
+  // const { nodes, materials } = useGLTF('/assets/alfaRomeoF1.gltf')
+  const { nodes, materials } = useGLTF('/static/media/alfaRomeoF1.gltf')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.046, 0]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.136}>
@@ -32,5 +33,6 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/assets/alfaRomeoF1.gltf')
+// useGLTF.preload('/assets/alfaRomeoF1.gltf')
+useGLTF.preload('/static/media/alfaRomeoF1.gltf')
 
