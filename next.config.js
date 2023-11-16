@@ -6,11 +6,22 @@ const nextConfig = {
 
  // Add basePath
   basePath: '/dashboardThreejs',
-  webpack: (config, { isServer }) => {
-    // Add raw-loader for GLTF files
+  
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.(gltf)$/,
-      use: isServer ? 'raw-loader' : ['raw-loader'],
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: false,
+            fallback: 'file-loader',
+            publicPath: '/_next',
+            outputPath: 'static/media/',
+            name: '[name].[hash].[ext]',
+          },
+        },
+      ],
     });
 
     return config;
