@@ -12,7 +12,7 @@ import { useGLTF } from '@react-three/drei'
 
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/assets/alfaRomeoF1.gltf')
+  const { nodes, materials } = useGLTF('/alfaRomeoF1.gltf')
   // const { nodes, materials } = useGLTF('/static/media/alfaRomeoF1.gltf')
   return (
     <group {...props} dispose={null}>
@@ -33,6 +33,6 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/assets/alfaRomeoF1.gltf')
+useGLTF.preload('/alfaRomeoF1.gltf')
 // useGLTF.preload('/static/media/alfaRomeoF1.gltf')
 
