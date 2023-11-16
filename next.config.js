@@ -8,7 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
 
  // Add basePath
-  basePath: '/dashboardThreejs',
+  // basePath: '/dashboardThreejs',
   
   webpack: (config, { isServer }) => {
     // Add copy-webpack-plugin to copy the GLTF file
