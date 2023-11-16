@@ -12,10 +12,8 @@ const nextConfig = {
       test: /\.(gltf)$/,
       use: [
         {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: false,
-            fallback: 'file-loader',
             publicPath: '/_next',
             outputPath: 'static/media/',
             name: '[name].[hash].[ext]',
