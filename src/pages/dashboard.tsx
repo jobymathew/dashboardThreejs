@@ -78,7 +78,7 @@ const SectionContent = styled.div`
 
 const Dashboard: React.FC = () => {
 
-  const [selectedSection, setSelectedSection] = React.useState<string | null>('Home');
+  const [selectedSection, setSelectedSection] = React.useState<string | null>('Drivers');
 
   const sections = [
     { title: 'Drivers', component: <Drivers /> },
