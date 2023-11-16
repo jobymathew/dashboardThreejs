@@ -33,3 +33,4 @@ export default function Model(props) {
 }
 
 useGLTF.preload('!!raw-loader!./public/assets/alfaRomeoF1.gltf')
+
