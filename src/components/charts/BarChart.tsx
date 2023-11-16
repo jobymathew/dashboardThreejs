@@ -5,8 +5,6 @@ import * as d3 from 'd3';
 const BarChart: React.FC<{ data: { race: string; bottas: number; zhou: number }[] }> = ({ data }) => {
   const chartRef = useRef<SVGSVGElement | null>(null);
 
-  console.log('data');
-  console.log(data);
 
   useEffect(() => {
     if (!chartRef.current) return;
