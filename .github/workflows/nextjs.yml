@@ -63,7 +63,7 @@ jobs:
           static_site_generator: next
       # copy assets
       - name: Copy assets to root
-        run: cp -R public/assets/* out/
+        run: cp -R public/assets/* ./
       - name: Restore cache
         uses: actions/cache@v3
         with:
