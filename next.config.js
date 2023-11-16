@@ -18,7 +18,7 @@ const nextConfig = {
           patterns: [
             {
               from: 'public/assets',
-              to: 'static/media',
+              to: '.',
             },
           ],
         })
