@@ -10,8 +10,9 @@ Title: Alfa Romeo C42 F1 Car 3D Model
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
+
 export default function Model(props) {
-  const { nodes, materials } = useGLTF('/alfaRomeoF1.json')
+  const { nodes, materials } = useGLTF('!!raw-loader!./public/assets/alfaRomeoF1.gltf')
   return (
     <group {...props} dispose={null}>
       <group position={[0, 0.046, 0]} rotation={[Math.PI / 2, 0, -Math.PI / 2]} scale={0.136}>
@@ -31,4 +32,5 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/alfaRomeoF1.json')
+useGLTF.preload('!!raw-loader!./public/assets/alfaRomeoF1.gltf')
+
