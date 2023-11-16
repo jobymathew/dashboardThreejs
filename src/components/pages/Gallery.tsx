@@ -3,10 +3,10 @@ import React from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-import Gallery1 from '../images/gallery/gallery1.jpeg';
-import Gallery2 from '../images/gallery/gallery2.jpeg';
-import Gallery3 from '../images/gallery/gallery3.jpeg';
-import Gallery4 from '../images/gallery/gallery4.jpeg';
+import Gallery1 from '../../images/gallery/gallery1.jpeg';
+import Gallery2 from '../../images/gallery/gallery2.jpeg';
+import Gallery3 from '../../images/gallery/gallery3.jpeg';
+import Gallery4 from '../../images/gallery/gallery4.jpeg';
 
 const GalleryContainer = styled.div`
   display: grid;

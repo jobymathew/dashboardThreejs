@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-import Bottas from '../images/drivers/valtteri.jpg';
-import Zhou from '../images/drivers/zhou.jpg';
+import Bottas from '../../images/drivers/valtteri.jpg';
+import Zhou from '../../images/drivers/zhou.jpg';
 
 const DriversContainer = styled.div`
   display: flex;

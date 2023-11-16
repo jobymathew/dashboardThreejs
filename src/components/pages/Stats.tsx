@@ -1,4 +1,3 @@
-import D3DataVisualization from '@/components/D3DataVisualization';
 import BarChart from '@/components/charts/BarChart';
 import LineChart from '@/components/charts/LineChart';
 import { addTeamStandingData } from '@/redux/teamStandingSlice';
@@ -29,7 +28,7 @@ const ChartTitle = styled.h2`
 
 const Stats: React.FC = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const lineChartData = useSelector((state: any) => state.lineChart);
   const teamStandingData = useSelector((state: any) => state.teamStanding);
 

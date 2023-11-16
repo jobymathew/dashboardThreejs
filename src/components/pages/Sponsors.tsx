@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-import Kick from '../images/sponsors/kick.png';
-import Stake from '../images/sponsors/stake.png';
-import Singha from '../images/sponsors/singha.png';
-import Puma from '../images/sponsors/puma.png';
-import Mitsubishi from '../images/sponsors/mitsubishi.png';
-import Pirelli from '../images/sponsors/pirelli.png';
+import Kick from '../../images/sponsors/kick.png';
+import Stake from '../../images/sponsors/stake.png';
+import Singha from '../../images/sponsors/singha.png';
+import Puma from '../../images/sponsors/puma.png';
+import Mitsubishi from '../../images/sponsors/mitsubishi.png';
+import Pirelli from '../../images/sponsors/pirelli.png';
 
 const SponsorsContainer = styled.div`
   display: grid;

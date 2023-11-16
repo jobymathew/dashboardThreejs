@@ -5,15 +5,15 @@ import React from 'react';
 
 
 import styled from 'styled-components';
-import AlfaLogo from './alfaLogo';
+import AlfaLogo from '../components/alfaLogo';
 import AlfaBg from '../images/alfa-background.png';
-import Drivers from '@/pages/Drivers';
-import Stats from '@/pages/Stats';
-import Contact from '@/pages/Contact';
-import Engine from '@/pages/Engine';
-import Home from '@/pages/Home';
-import Gallery from '@/pages/Gallery';
-import Sponsors from '@/pages/Sponsors';
+import Drivers from '@/components/pages/Drivers';
+import Stats from '@/components/pages/Stats';
+import Contact from '@/components/pages/Contact';
+import Engine from '@/components/pages/Engine';
+import Home from '@/components/pages/Home';
+import Gallery from '@/components/pages/Gallery';
+import Sponsors from '@/components/pages/Sponsors';
 
 
 const StyledDashboard = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import F1EngineImage from '../images/f1Engine.png';
+import F1EngineImage from '../../images/f1Engine.png';
 import Image from 'next/image';
 
 const EngineContainer = styled.div`

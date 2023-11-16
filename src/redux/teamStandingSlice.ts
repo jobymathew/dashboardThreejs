@@ -7,11 +7,11 @@ interface TeamStandingData {
 }
 
 
-const initialState: Array<TeamStandingData> = [];
+const initialTeamStandingState: Array<TeamStandingData> = [];
 
 const teamStandingSlice = createSlice({
   name: 'teamStanding',
-  initialState,
+  initialState: initialTeamStandingState,
   reducers: {
     setTeamStandingData: (state, action: PayloadAction<Array<TeamStandingData>>) => {
       return action.payload;
