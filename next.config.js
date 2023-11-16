@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // comment all the lines for npm run dev
   output: 'export',
   reactStrictMode: true,
 
